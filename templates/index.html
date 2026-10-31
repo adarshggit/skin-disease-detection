@@ -1,68 +1,199 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Skin Disease Classifier</title>
-    
-    <!-- Link to external CSS -->
+
     <link rel="stylesheet" href="/static/styles.css">
 </head>
+
 <body>
+
     <div class="container">
-        <h1>Upload Skin Image</h1>
-        <form action="/" method="POST" enctype="multipart/form-data" class="upload-form">
-            <input type="file" name="file" id="file-upload" required>
-            <button type="submit" class="upload-button">Upload</button>
-        </form>
 
-        {% if predicted_class %}
-            <div class="result">
-                <h2>Prediction Result:</h2>
-                <p class="predicted-class">{{ predicted_class }}</p>
-                <p class="confidence">Confidence: {{ confidence }}</p>
-                
-                <!-- Image Preview Section -->
-                <div class="image-preview">
-                    <img src="{{ img_path }}" alt="Uploaded Image">
-                </div>
+        <!-- Page Heading -->
+        <div class="page-header">
+            <p class="eyebrow">SKIN DISEASE ANALYSIS</p>
+            <h1>Skin Disease Detection</h1>
+        </div>
 
-                {% if prescription_html %}
-                    <div class="prescription">
-                        {% include prescription_html %}
+        <!-- Main Dashboard Layout -->
+        <div class="dashboard-layout">
+
+            <!-- 1. Image Upload Card -->
+            <section class="upload-card">
+
+                <form
+                    action="/"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="upload-form">
+
+                    <label for="file-upload" class="upload-label">
+                        Upload a skin image to receive an AI-generated prediction.
+                    </label>
+
+                    <input
+                        type="file"
+                        name="file"
+                        id="file-upload"
+                        accept="image/*"
+                        required
+                    >
+
+                    <button type="submit" class="upload-button">
+                        Analyze Image
+                    </button>
+
+                </form>
+
+            </section>
+
+            {% if predicted_class %}
+
+            <!-- Analysis Result and Nearby Hospitals -->
+            <div class="dashboard-bottom">
+
+                <!-- 2. Analysis Result Card -->
+                <section class="result analysis-card">
+
+                    <h2>ANALYSIS RESULT</h2>
+
+                    <!-- Prediction Details -->
+                    <div class="prediction-details">
+
+                        <p class="predicted-class">
+                            {{ predicted_class }}
+                        </p>
+
+                        <p class="confidence">
+                            Confidence: {{ confidence }}
+                        </p>
+
                     </div>
-                {% endif %}
+
+                    <!-- Uploaded Image -->
+                    <div class="image-preview">
+
+                        <h3>Uploaded Image</h3>
+
+                        <img
+                            src="{{ img_path }}"
+                            alt="Uploaded skin image"
+                        >
+
+                    </div>
+
+                    
+
+                </section>
+
+                <!-- 3. Nearby Hospitals Card -->
+                <section class="map-feature hospital-card">
+
+                    <h2>Nearby Hospitals &amp; Clinics</h2>
+
+                    <p>
+                        Find nearby skin hospitals and dermatology clinics.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="showMap()"
+                        class="upload-button">
+
+                        Show Nearby Skin Hospitals
+
+                    </button>
+
+                    <!-- Map Container -->
+                    <div
+                        id="map-container"
+                        class="map-container"
+                        style="display: none;">
+
+                        <iframe
+                            id="map-frame"
+                            src=""
+                            title="Nearby skin hospitals and clinics"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                </section>
+
             </div>
 
-            <!-- Add Map Feature After Result -->
-            <div class="map-feature">
-                <button onclick="showMap()" class="upload-button" style="margin-top: 2%;">Show Nearby Skin Hospitals</button>
-                <div id="map-container" style="margin-top: 20px; display: none;">
-                    <iframe
-                        id="map-frame"
-                        src=""
-                        width="100%"
-                        height="400"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        {% endif %}
+            <!-- 4. Treatment Section - Full Width -->
+             
+            {% if prescription_html %}
+
+            <section class="treatment-card">
+                <!-- Medical Disclaimer -->
+                    <div class="medical-disclaimer">
+
+                        <strong>Medical Disclaimer:</strong>
+
+                        This result is generated by an AI model and is
+                        not a confirmed medical diagnosis. AI predictions
+                        may be inaccurate. Please consult a qualified
+                        healthcare professional or dermatologist for
+                        proper diagnosis and treatment.
+
+                    </div>
+
+                <details class="prescription">
+
+                    <summary>
+                        Treatment &amp; Recommendations
+                    </summary>
+
+                    <div class="prescription-content">
+
+                        {% include prescription_html %}
+
+                    </div>
+
+                </details>
+
+            </section>
+
+            {% endif %}
+
+            {% endif %}
+
+        </div>
+
     </div>
 
+    <!-- Map Script -->
     <script>
         function showMap() {
-            const mapContainer = document.getElementById('map-container');
-            const mapFrame = document.getElementById('map-frame');
 
-            // Update iframe source to show the map
-            mapFrame.src = "https://www.google.com/maps?q=skin+hospital+near+me&output=embed";
-            
-            // Display the map container
+            const mapContainer =
+                document.getElementById("map-container");
+
+            const mapFrame =
+                document.getElementById("map-frame");
+
+            mapFrame.src =
+                "https://www.google.com/maps?q=skin+hospital+near+me&output=embed";
+
             mapContainer.style.display = "block";
+
         }
     </script>
+<!-- Error Popup -->
+<!-- Error Popup -->
+{% if error %}
+<script>
+    alert({{ error | tojson }});
+</script>
+{% endif %}
 </body>
 </html>
