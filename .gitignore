@@ -1,0 +1,36 @@
+# Ignore dataset folders
+/data/
+/dataset/
+
+# Ignore temporary files
+__pycache__/
+*.pyc
+.DS_Store
+*.ipynb_checkpoints
+# Exclude unavailable Git LFS pointer files
+static/17ca959a-bb11-4027-8d8b-d83b6ba62ee8_image2.png
+static/2129a34a-4a34-4b5e-9022-867a016fde9f_image23.png
+static/295721bc-6bf6-4200-bfd9-fcb72371e439_download_4.jpg
+static/2ed23ac8-4732-44fe-a8a1-0af6a8adc64d_image2.png
+static/34083695-a145-4c6d-b693-e4b89b256a75_image2.png
+static/3dd0a64d-f9b8-4e81-9b28-2965ff17da8c_image8.png
+static/41fdcfcb-cb1e-4c20-a118-17cbc37495dd_image1.jpg.jpg
+static/4754356a-8020-42a2-8643-cdf8a814b072_acnepicture.jpg
+static/6a108922-015d-4230-b151-5aeb8b2ba399_image10.png
+static/6b201048-f301-4031-b7e5-208c0b5c32f6_image9.png
+static/7d63098d-7e9c-4447-a541-6969e87de973_image6.png
+static/831129b6-7a0c-42d6-baae-a880b06a9042_image17.png
+static/8c011445-9432-4a20-8cb8-3964cba8fac7_image9.png
+static/8ef6fe2b-5172-4662-8873-aa7ecaaa535e_0_before.jpg
+static/90015a8e-0510-4fb7-886c-9f37c8e8b54e_image16.png
+static/922c45ed-6e15-4129-a0c5-dfb54de96339_image1.png
+static/b4d1d5b1-0112-4991-b57a-b1fb18df5e92_image6.png
+static/b71ebce8-1914-4147-9774-f04f35191ad1_acnepicture.jpg
+static/c15213f1-3399-4a9f-ae86-99311633fde4_image2.png
+static/e8136615-c2cc-4aa8-bfe6-23829bd00679_image2.png
+static/image2.png
+static/image6.png
+static/image7.png
+static/image8.png
+static/457d1e92-e8ca-4f95-8c9c-0bfa926030d1_Adarsh.jpg
+static/5147bdc1-4baa-40e3-bed5-1c3d8c2d0637_Screenshot_2026-05-20_202651.png
