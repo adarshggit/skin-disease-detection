@@ -70,8 +70,7 @@ Feel free to fork and contribute to this project! Pull requests are welcome. �
 
 ---
 🚀 **Developed by [Adarsha Gouda]** 👨‍💻
-**Output sample** 
-![image](https://github.com/user-attachments/assets/f6a55e81-4b1e-4427-aff3-c384d4ded5d6)
-![image](https://github.com/user-attachments/assets/6bf0c646-9d23-4139-a505-e3c85297a1d1)
-![image](https://github.com/user-attachments/assets/726dd15c-4855-4d6d-8b28-b7b82bdb20bc)
 
+## 🖥️ Project Output
+
+![Skin Disease Detection Output](screenshots/output.jpg)
